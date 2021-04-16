@@ -4,9 +4,8 @@ const {NotificationSounds} = NativeModules;
 
 export default NotificationSounds;
 
-export const playSampleSound = soundObject => {
-  const sound = soundObject.url;
-  NotificationSounds.playSample(sound);
+export const playSampleSound = () => {
+  NotificationSounds.playSample();
 };
 
 export const stopSampleSound = () => {

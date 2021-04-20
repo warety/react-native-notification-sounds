@@ -77,18 +77,9 @@ RCT_REMAP_METHOD(getNotifications, soundTypeParamentr:(NSString *)soundType load
 
 SystemSoundID soundID = 0;
 
-RCT_EXPORT_METHOD(playSample:(NSString *) soundUrl)
+RCT_EXPORT_METHOD(playSample)
 {
-    NSURL *url = [NSURL URLWithString:soundUrl];
-    AudioServicesDisposeSystemSoundID(soundID);
-    //Register the sound to the system
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &soundID);
-    AudioServicesPlaySystemSound(soundID);
-    AudioServicesPlaySystemSoundWithCompletion(soundID, ^{
-        AudioServicesRemoveSystemSoundCompletion(soundID);
-        AudioServicesDisposeSystemSoundID(soundID);
-    });
-   
+    AudioServicesPlaySystemSound (1003);
 }
 
 RCT_EXPORT_METHOD(stopSample)
